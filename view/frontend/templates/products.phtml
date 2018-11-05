@@ -1,0 +1,81 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var $block ASV\TestMI22\Block\Products
+ */
+
+$productsCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
+
+//$store = $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore();
+//$store = $this->[\Magento\Store\Model\StoreManagerInterface] _storeManager->getStore();
+/*$imageUrl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' . $product->getImage();*/
+?>
+
+
+<h2>Products List:</h2>
+<!--<ul>
+    <?php /*/** @var $product \Magento\Catalog\Model\Product */ ?>
+
+</ul>-->
+
+<section class="product-slider vertical-center-4 slider">
+    <?php foreach ($block->getProducts() as $product): ?>
+        <div>
+            <img src="<?php echo $helperImport->init($product, 'product_page_image_small')
+                ->setImageFile($product->getSmallImage())// image,small_image,thumbnail
+                ->resize(380)
+                ->getUrl() ?>">
+        </div>
+    <?php endforeach; ?>
+</section>
+
+
+<script type="text/javascript">
+    require(['jquery', 'slick', 'domReady!'], function ($) {
+
+            $('.product-slider').slick({
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                            infinite: true
+                        }
+                    },
+                    {
+                        breakpoint: 770,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 400,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+    });
+</script>

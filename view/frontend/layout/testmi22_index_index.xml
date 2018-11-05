@@ -1,0 +1,39 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <title>Titlename</title>
+        <!-- 
+		demo
+		<css src="ASV_TestMI22::css/css.css"/>
+		<script src="ASV_TestMI22::js/js.js"/>
+		<css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+		<script src="path/file.js" defer="defer"/>
+		<link src="http://url.com" src_type="url"/>
+		<remove src="path/remove/file.css"/>
+
+		-->
+    </head> 
+
+    <body>
+
+        <referenceContainer name="sidebar.main">
+            <block class="ASV\TestMI22\Block\Index\Sidebar"
+                   name="testmi22_index_sidebar" before="-"
+                   template="ASV_TestMI22::testmi22_index_sidebar.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="ASV\TestMI22\Block\Index\Index"
+                   name="testmi22_index_index"
+                   template="ASV_TestMI22::testmi22_index_index.phtml"/>
+
+            <block class="ASV\TestMI22\Block\Products"
+                   name="testmi22_products"
+                   template="ASV_TestMI22::products.phtml" />
+        </referenceContainer>
+
+
+
+    </body>
+</page>
