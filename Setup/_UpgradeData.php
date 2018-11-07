@@ -76,15 +76,15 @@ class UpgradeData implements UpgradeDataInterface
             $eavSetup = $this->eavSetupFactory->create();
             $eavSetup->addAttribute(
                 \Magento\Catalog\Model\Product::ENTITY,
-                'clothing_material',
+                'clothing_material2',
                 [
                     'group' => 'General',
                     'type' => 'varchar',
-                    'label' => 'Clothing Material',
+                    'label' => 'Clothing Material2',
                     'input' => 'select',
-                    'source' => 'Learning\ClothingMaterial\Model\Attribute\Source\Material',
-                    'frontend' => 'Learning\ClothingMaterial\Model\Attribute\Frontend\Material',
-                    'backend' => 'Learning\ClothingMaterial\Model\Attribute\Backend\Material',
+                    'source' => 'ASV\AddAttr\Model\Attribute\Source\Material',
+                    'frontend' => 'ASV\AddAttr\Model\Attribute\Frontend\Material',
+                    'backend' => 'ASV\AddAttr\Model\Attribute\Backend\Material',
                     'required' => false,
                     'sort_order' => 50,
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,

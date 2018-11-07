@@ -25,14 +25,15 @@ class	UpgradeData	implements	UpgradeDataInterface	{
      */
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        die('in upgrade');
+       // die($context->getVersion());
+        //die('in upgrade AddAttr');
+
         $setup->startSetup();
-        /// var_dump($context->getVersion());die;
+       /// var_dump($context->getVersion());die;
         ///
-        //По умолчанию функция version_compare() возвращает -1, если первая версия меньше второй; 0, когда они равны; 1, если вторая меньше первой.
-        if (version_compare($context->getVersion(), '1.0.6') < 0
+       //По умолчанию функция version_compare() возвращает -1, если первая версия меньше второй; 0, когда они равны; 1, если вторая меньше первой.
+        if (version_compare($context->getVersion(), '1.0.8', '<')
         ) {
-            die('in version_compare');
             /** @var CategorySetup $categorySetup */
             $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
 
